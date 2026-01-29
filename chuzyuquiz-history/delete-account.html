@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アカウント削除 - AI-ChuzyuQuiz 歴史</title>
+    <title>アカウント削除 - AI-ChuzyuQuiz 歴史 | ほうきぼし</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', sans-serif;
             line-height: 1.8;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             padding: 20px;
             color: #333;
@@ -17,6 +17,59 @@
         h1 {
             color: #1a73e8;
             font-size: 1.5em;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #202124;
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
+        .app-info {
+            background-color: #e8f0fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .steps {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .steps ol {
+            padding-left: 20px;
+        }
+        .steps li {
+            margin-bottom: 15px;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #f5f5f5;
+        }
+        .delete-badge {
+            background-color: #d93025;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+        .retain-badge {
+            background-color: #f9ab00;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
         }
         .form-group {
             margin-bottom: 20px;
@@ -47,22 +100,24 @@
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
+            font-weight: bold;
         }
         button:hover {
             background-color: #b52a1f;
         }
-        .note {
-            background-color: #fff3cd;
+        .warning {
+            background-color: #fce8e6;
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 20px;
-            font-size: 0.9em;
+            border-left: 4px solid #d93025;
         }
         .success {
-            background-color: #d4edda;
-            padding: 15px;
+            background-color: #e6f4ea;
+            padding: 20px;
             border-radius: 8px;
             display: none;
+            border-left: 4px solid #34a853;
         }
         footer {
             margin-top: 40px;
@@ -76,15 +131,69 @@
 <body>
     <h1>🗑️ アカウント削除リクエスト</h1>
     
-    <div class="note">
+    <div class="app-info">
+        <strong>アプリ名:</strong> AI-ChuzyuQuiz 歴史<br>
+        <strong>開発者:</strong> ほうきぼし (houkiboshinn)
+    </div>
+
+    <h2>📋 アカウント削除の手順</h2>
+    
+    <div class="steps">
+        <ol>
+            <li><strong>下記フォームにメールアドレスを入力</strong><br>
+                アプリに登録したメールアドレスを入力してください。</li>
+            <li><strong>削除リクエストを送信</strong><br>
+                「削除をリクエスト」ボタンを押すと、メールアプリが起動します。</li>
+            <li><strong>メールを送信</strong><br>
+                内容を確認してメールを送信してください。</li>
+            <li><strong>削除処理の完了</strong><br>
+                通常7日以内に削除処理が完了し、確認メールをお送りします。</li>
+        </ol>
+    </div>
+
+    <h2>📊 削除・保持されるデータ</h2>
+    
+    <table class="data-table">
+        <tr>
+            <th>データの種類</th>
+            <th>処理</th>
+            <th>保持期間</th>
+        </tr>
+        <tr>
+            <td>メールアドレス</td>
+            <td><span class="delete-badge">削除</span></td>
+            <td>即時削除</td>
+        </tr>
+        <tr>
+            <td>パスワード（暗号化済み）</td>
+            <td><span class="delete-badge">削除</span></td>
+            <td>即時削除</td>
+        </tr>
+        <tr>
+            <td>学習進捗データ</td>
+            <td><span class="delete-badge">削除</span></td>
+            <td>即時削除</td>
+        </tr>
+        <tr>
+            <td>クイズ回答履歴</td>
+            <td><span class="delete-badge">削除</span></td>
+            <td>即時削除</td>
+        </tr>
+        <tr>
+            <td>匿名の利用統計</td>
+            <td><span class="retain-badge">保持</span></td>
+            <td>最大2年間*</td>
+        </tr>
+    </table>
+    <p style="font-size: 0.85em; color: #666;">
+        *匿名の利用統計（Firebase Analytics）は個人を特定できない形式で保持されます。
+    </p>
+
+    <h2>🔴 削除リクエストフォーム</h2>
+    
+    <div class="warning">
         <strong>⚠️ ご注意</strong><br>
-        アカウントを削除すると、以下のデータがすべて削除されます：
-        <ul>
-            <li>アカウント情報（メールアドレス）</li>
-            <li>学習進捗データ</li>
-            <li>クイズ回答履歴</li>
-        </ul>
-        この操作は取り消せません。
+        アカウントを削除すると、すべてのデータが完全に削除され、復元できません。
     </div>
 
     <form id="deleteForm">
@@ -97,15 +206,19 @@
     </form>
 
     <div id="success" class="success">
-        <strong>✅ リクエストを受け付けました</strong><br>
-        ご入力いただいたメールアドレス宛に確認メールを送信します。
-        削除処理は通常7日以内に完了します。
+        <strong>✅ リクエストを受け付けました</strong><br><br>
+        メールアプリが起動しました。内容を確認してメールを送信してください。<br>
+        削除処理は通常7日以内に完了し、確認メールをお送りします。
     </div>
 
     <footer>
+        <p><strong>お問い合わせ</strong></p>
         <p>
-            削除リクエストに関するお問い合わせ：<br>
+            アカウント削除に関するご質問：<br>
             <a href="mailto:houkiboshinn@gmail.com">houkiboshinn@gmail.com</a>
+        </p>
+        <p>
+            <a href="privacy-policy.html">プライバシーポリシー</a>
         </p>
         <p>© 2026 ほうきぼし (houkiboshinn)</p>
     </footer>
@@ -114,14 +227,18 @@
         document.getElementById('deleteForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // メール送信（実際はmailto:を使用）
             const email = document.getElementById('email').value;
             const subject = encodeURIComponent('【アカウント削除リクエスト】AI-ChuzyuQuiz 歴史');
-            const body = encodeURIComponent('以下のアカウントの削除をリクエストします。\n\nメールアドレス: ' + email + '\n\n削除処理をお願いいたします。');
+            const body = encodeURIComponent(
+                '以下のアカウントの削除をリクエストします。\n\n' +
+                '■ 登録メールアドレス\n' + email + '\n\n' +
+                '■ アプリ名\nAI-ChuzyuQuiz 歴史\n\n' +
+                '■ リクエスト内容\nアカウントおよび関連するすべてのデータの削除\n\n' +
+                '削除処理をお願いいたします。'
+            );
             
             window.location.href = 'mailto:houkiboshinn@gmail.com?subject=' + subject + '&body=' + body;
             
-            // 成功メッセージ表示
             document.getElementById('deleteForm').style.display = 'none';
             document.getElementById('success').style.display = 'block';
         });
